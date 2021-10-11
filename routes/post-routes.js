@@ -1,13 +1,13 @@
 const express = require('express');
 const Post = require('../models/post');
 const router = express.Router();
-const createPath = require('../helpers/find-path');
+const findPath = require('../helpers/find-path');
 
 router.get('/posts/:id', (req, res) => {
     const title = 'Post';
     Post
       .findById(req.params.id)
-      .then(post => res.render(createPath('post'), { post, title }))
+      .then(post => res.render(findPath('post'), { post, title }))
       .catch((error) => {
         console.log(error);
         res.render(findPath('error'), { title: 'Error' });
