@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const findPath = require('./helpers/find-path');
 const { db: db } = require('./settings/settigns');
 
 const app = express();
@@ -18,4 +19,7 @@ app.listen(PORT, (error) => {
   error ? console.log(error) : console.log(`listening port ${PORT}`);
 });
 
-app.use(express.urlencoded({ extended: false }));
+app.get('/', (req, res) => {
+  const title = 'Home';
+  res.render(findPath('index'), { title });
+});
