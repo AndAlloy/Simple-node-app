@@ -17,6 +17,10 @@ mongoose
   .then((res) => console.log('Connected to DB'))
   .catch((error) => console.log(error));
 
+app.use(express.static('styles'));
+
+app.use(methodOverride('_method'));
+
 app.listen(PORT, (error) => {
   error ? console.log(error) : console.log(`listening port ${PORT}`);
 });
