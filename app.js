@@ -4,7 +4,7 @@ const methodOverride = require('method-override');
 const findPath = require('./helpers/find-path');
 const postRoutes = require('./routes/post-routes');
 const contactRoutes = require('./routes/contact-routes');
-const { db: db } = require('./settings/settigns');
+// const { db: db } = require('./settings/settigns');
 
 const app = express();
 
@@ -12,10 +12,10 @@ app.set('view engine', 'ejs');
 
 const PORT = 3000;
 
-mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((res) => console.log('Connected to DB'))
-  .catch((error) => console.log(error));
+// mongoose
+//   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then((res) => console.log('Connected to DB'))
+//   .catch((error) => console.log(error));
 
 app.use(express.static('styles'));
 
